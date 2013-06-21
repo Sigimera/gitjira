@@ -1,24 +1,24 @@
 # gitjira
 
-Git JIRA is an extension that combines feature or all other type of branches
+Git JIRA is an extension that combines feature, or all other type of branches,
 with JIRA issues. It shows the current status and the summary of the issue.
 
 In order to be able to combine branches the branch name must include the following
 string _PROJECTKEY-###_
 
-Examples if the project key is _PROJ_ and the issue number _123_
+Examples if the project key is _PROJ_ and the issue number is _123_
 
-    features/PROJ-123_some_description
-    someprefix/PROJ-123_some_description
     PROJ-123
     PROJ-123_description
+    features/PROJ-123_some_description
+    someprefix/PROJ-123-some_description
 
 ## Installation
 
 Install via rubygems.org:
 
     $ gem install gitjira
-    or with rvm
+    or with global via rvm
     $ rvm @global do gem install gitjira
 
 ## Setup:
@@ -28,6 +28,11 @@ Install via rubygems.org:
     Your JIRA username                       : johnny
     Your JIRA password                       : ************
     Related JIRA project key (e.g. PROJ)     : PROJ
+
+If you want update the configuration file, e.g. changing the host, you can
+update directly the .git/config file or via the following command:
+
+    $ git jira init -f # or --force
 
 
 ## Example Scenario - Feature Branches:
