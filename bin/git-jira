@@ -30,7 +30,7 @@ opt_parser = OptionParser.new do |opt|
   end
 
   opt.on("-v", "--version", "print out current Version number") do
-    STDOUT.puts "sigtools-#{Gitjira::VERSION}"
+    STDOUT.puts "gitjira-#{Gitjira::VERSION}"
     exit
   end
 
