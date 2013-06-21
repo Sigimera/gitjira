@@ -1,14 +1,14 @@
 PATH
   remote: .
   specs:
-    gitjira (0.0.1)
+    gitjira (0.0.2)
       highline
       rest-client (~> 1.6)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    highline (1.6.8)
+    highline (1.6.19)
     mime-types (1.23)
     rake (10.0.4)
     rest-client (1.6.7)
