@@ -33,7 +33,7 @@ Examples if the project key is _PROJ_ and the issue number _123_
 
 Use aliases to be even more efficient, e.g. add 'alias jl = jira list' to your global ~/.gitconfig
 
-   $ git jl # same as git jira list
+    $ git jl # same as git jira list
 
 ## Installation
 
