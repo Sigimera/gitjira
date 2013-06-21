@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+#####
+# Copyright (c) 2013 by Sigimera Ltd.
+# All rights reserved.
+#####
+require 'rubygems'
+require 'optparse'
+require 'json'
+
+begin
+  require "gitjira"
+rescue LoadError => e
+  STDERR.puts "Install the missing library:\n\t \e[0;36m$\e[m \e[0;32mgem install gitjira\e[m"
+  exit
+end
+
+options = {}
+
+opt_parser = OptionParser.new do |opt|
+  opt.banner = "Usage: git-jira [COMMANDS] [OPTIONS]"
+  opt.separator  ""
+  opt.separator  "Commands"
+  opt.separator  "     init:          connect the current repository with JIRA"
+  opt.separator  "     list:          connect the current repository with JIRA"
+  opt.separator  ""
+
+  opt.on("-h", "--help", "help") do
+    STDOUT.puts opt_parser
+    exit
+  end
+
+  opt.on("-v", "--version", "print out current Version number") do
+    STDOUT.puts "sigtools-#{Sigtools::VERSION}"
+    exit
+  end
+end
+
+opt_parser.parse!
+
+case ARGV[0]
+when "init"
+  Gitjira::Setup.init
+when "list"
+  unless Gitjira::Setup.setup?
+    STDERR.puts "[SETUP] This repository is not setup correcly, please execute: `git-jira init`"
+    exit
+  end
+  begin
+    Gitjira::InformationFetching.branches
+  rescue => e
+    STDERR.puts "[ERROR] Not able to fetch feature branch information from JIRA, through exception: #{e}"
+  end
+else
+  STDOUT.puts opt_parser
+end
