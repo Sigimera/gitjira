@@ -14,7 +14,7 @@ rescue LoadError => e
   exit
 end
 
-options = {}
+options = { :force => false }
 
 opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage: git-jira [COMMANDS] [OPTIONS]"
@@ -33,13 +33,17 @@ opt_parser = OptionParser.new do |opt|
     STDOUT.puts "sigtools-#{Gitjira::VERSION}"
     exit
   end
+
+  opt.on("-f", "--force", "force overwrite of .git/config [gitjira] block") do
+    options[:force] = true
+  end
 end
 
 opt_parser.parse!
 
 case ARGV[0]
 when "init"
-  Gitjira::Setup.init
+  Gitjira::Setup.init(options[:force])
 when "list"
   unless Gitjira::Setup.setup?
     STDERR.puts "[SETUP] This repository is not setup correcly, please execute: `git-jira init`"
