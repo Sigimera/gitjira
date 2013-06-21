@@ -8,26 +8,26 @@ string _PROJECTKEY-###_
 
 Examples if the project key is _PROJ_ and the issue number _123_
 
-        features/PROJ-123_some_description
-        someprefix/PROJ-123_some_description
-        PROJ-123
-        PROJ-123_description
+    features/PROJ-123_some_description
+    someprefix/PROJ-123_some_description
+    PROJ-123
+    PROJ-123_description
 
 ### Setup:
 
-        $ git jira init
-        JIRA host (e.g. https://jira.example.org): http://www.example.org/jira
-        Your JIRA username                       : johnny
-        Your JIRA password                       : ************
-        Related JIRA project key (e.g. PROJ)     : PROJ
+    $ git jira init
+    JIRA host (e.g. https://jira.example.org): http://www.example.org/jira
+    Your JIRA username                       : johnny
+    Your JIRA password                       : ************
+    Related JIRA project key (e.g. PROJ)     : PROJ
 
 
 ### Example Scenario - Feature Branches:
 
-        $ git jira list
-        Open           0% done  PROJ-123  - Implement some new feature
-        Resolved     100% done  PROJ-20   - And yet another feature
-        Resolved      42% done  PROJ-16   - Add /features page
+    $ git jira list
+    Open           0% done  PROJ-123  - Implement some new feature
+    Resolved     100% done  PROJ-20   - And yet another feature
+    Resolved      42% done  PROJ-16   - Add /features page
 
 
 ## Installation
@@ -38,8 +38,8 @@ Install via rubygems.org:
 
 ## Usage
 
-  # See what commands are available.
-  $ git-jira --help # or git jira -h
+    # See what commands are available.
+    $ git-jira --help # or git jira -h
 
 ## Contributing
 
