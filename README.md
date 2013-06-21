@@ -29,6 +29,11 @@ Examples if the project key is _PROJ_ and the issue number _123_
     Resolved     100% done  PROJ-20   - And yet another feature
     Resolved      42% done  PROJ-16   - Add /features page
 
+## Tips & Tricks
+
+Use aliases to be even more efficient, e.g. add 'alias jl = jira list' to your global ~/.gitconfig
+
+   $ git jl # same as git jira list
 
 ## Installation
 
