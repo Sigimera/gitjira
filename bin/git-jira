@@ -20,8 +20,8 @@ opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage: git-jira [COMMANDS] [OPTIONS]"
   opt.separator  ""
   opt.separator  "Commands"
-  opt.separator  "     init:          connect the current repository with JIRA"
-  opt.separator  "     list:          connect the current repository with JIRA"
+  opt.separator  "     init:          setup the current repository to be able to connect to a JIRA project"
+  opt.separator  "     list:          returns a list of branches with related issue information"
   opt.separator  ""
 
   opt.on("-h", "--help", "help") do
@@ -30,7 +30,7 @@ opt_parser = OptionParser.new do |opt|
   end
 
   opt.on("-v", "--version", "print out current Version number") do
-    STDOUT.puts "sigtools-#{Sigtools::VERSION}"
+    STDOUT.puts "sigtools-#{Gitjira::VERSION}"
     exit
   end
 end
