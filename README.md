@@ -13,7 +13,15 @@ Examples if the project key is _PROJ_ and the issue number _123_
     PROJ-123
     PROJ-123_description
 
-### Setup:
+## Installation
+
+Install via rubygems.org:
+
+    $ gem install gitjira
+    or with rvm
+    $ rvm @global do gem install gitjira
+
+## Setup:
 
     $ git jira init
     JIRA host (e.g. https://jira.example.org): http://www.example.org/jira
@@ -22,7 +30,7 @@ Examples if the project key is _PROJ_ and the issue number _123_
     Related JIRA project key (e.g. PROJ)     : PROJ
 
 
-### Example Scenario - Feature Branches:
+## Example Scenario - Feature Branches:
 
     $ git jira list
     Open           0% done  PROJ-123  - Implement some new feature
@@ -34,12 +42,6 @@ Examples if the project key is _PROJ_ and the issue number _123_
 Use aliases to be even more efficient, e.g. add 'alias jl = jira list' to your global ~/.gitconfig
 
     $ git jl # same as git jira list
-
-## Installation
-
-Install via rubygems.org:
-
-    $ gem install gitjira
 
 ## Usage
 
