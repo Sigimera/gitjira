@@ -83,6 +83,12 @@ Use aliases to be even more efficient:
     # See what commands are available.
     $ git-jira --help # or git jira -h
 
+## Resources
+
+* [RubyGems.org](https://rubygems.org/gems/gitjira) - The gem lives here...
+* [GitHub](https://github.com/Sigimera/gitjira) - The code lives here...
+* [Documentation](http://sigimera.github.io/gitjira/) - The documentation lives here...
+
 ## Contributing
 
 Please contribute and help to make this tool even better.
