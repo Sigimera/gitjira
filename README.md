@@ -19,7 +19,7 @@ Examples if the project key is _PROJ_ and the issue number is _123_
 Install via rubygems.org:
 
     $ gem install gitjira
-    or with global via rvm
+    or globally via rvm
     $ rvm @global do gem install gitjira
 
 ## Setup:
