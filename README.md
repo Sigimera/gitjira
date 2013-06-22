@@ -1,7 +1,8 @@
 # gitjira
 
 Git JIRA is an extension that combines feature, or all other type of branches,
-with JIRA issues. It shows the current status and the summary of the issue.
+with JIRA issues. It allows the extraction of issue information directly from
+the console, without changing to JIRA.
 
 In order to be able to combine branches the branch name must include the following
 string _PROJECTKEY-###_
@@ -61,13 +62,21 @@ update directly the .git/config file or via the following command:
     Updated At..........: 2013-06-20 23:21:18 +0200
     Fix Version.........: v1.2.0 (2013-06-30),
 
-    Add a page that list all features.
+    Add a page that lists all features.
 
 ## Tips & Tricks
 
-Use aliases to be even more efficient, e.g. add 'alias jl = jira list' to your global ~/.gitconfig
+Use aliases to be even more efficient:
+
+    $ cat ~/.gitconfig
+    ...
+    [alias]
+        jl = jira list
+        jd = jira describe
+    ...
 
     $ git jl # same as git jira list
+    $ git jd # same as git jira describe
 
 ## Usage
 
