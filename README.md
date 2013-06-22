@@ -23,7 +23,7 @@ Install via rubygems.org:
 
 ## Setup:
 
-    $ git jira init
+    $ git-jira init
     JIRA host (e.g. https://jira.example.org): http://www.example.org/jira
     Your JIRA username                       : johnny
     Your JIRA password                       : ************
@@ -32,15 +32,36 @@ Install via rubygems.org:
 If you want update the configuration file, e.g. changing the host, you can
 update directly the .git/config file or via the following command:
 
-    $ git jira init -f # or --force
+    $ git-jira init -f # or --force
 
 
-## Example Scenario - Feature Branches:
+## Example Scenario #1 - List branch information that have related JIRA issues:
 
-    $ git jira list
+    $ git-jira list
     Open           0% done  PROJ-123  - Implement some new feature
     Resolved     100% done  PROJ-20   - And yet another feature
     Resolved      42% done  PROJ-16   - Add /features page
+
+## Exampel Scenario #2 - Get information about the current branch
+
+    $ git-jira describe
+    => Add /features page <=
+
+    Issue Key...........: PROJ-123
+    Type................: New Feature
+    Status..............: Resolved
+    Progress............: 42.0 %
+    Estimated Work......: 1d
+    Remaining Work......: 4h 35m
+    Resolution..........: Fixed
+    Priority............: Major
+    Assignee............: Me
+    Reporter............: Me
+    Created At..........: 2013-05-26 13:09:17 +0200
+    Updated At..........: 2013-06-20 23:21:18 +0200
+    Fix Version.........: v1.2.0 (2013-06-30),
+
+    Add a page that list all features.
 
 ## Tips & Tricks
 
@@ -54,6 +75,8 @@ Use aliases to be even more efficient, e.g. add 'alias jl = jira list' to your g
     $ git-jira --help # or git jira -h
 
 ## Contributing
+
+Please contribute and help to make this tool even better.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)

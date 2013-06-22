@@ -22,6 +22,7 @@ opt_parser = OptionParser.new do |opt|
   opt.separator  "Commands"
   opt.separator  "     init:          setup the current repository to be able to connect to a JIRA project"
   opt.separator  "     list:          returns a list of branches with related issue information"
+  opt.separator  "     describe:      verbose issue information related to the current branch"
   opt.separator  ""
 
   opt.on("-h", "--help", "help") do
@@ -54,6 +55,8 @@ when "list"
   rescue => e
     STDERR.puts "[ERROR] Not able to fetch feature branch information from JIRA, through exception: #{e}"
   end
+when "describe"
+   Gitjira::InformationFetching.describe
 else
   STDOUT.puts opt_parser
 end

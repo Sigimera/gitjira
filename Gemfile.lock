@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gitjira (0.0.2)
+    gitjira (0.1.0)
       highline
       rest-client (~> 1.6)
 
