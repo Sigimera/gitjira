@@ -1,11 +1,11 @@
 # gitjira
 
-Git JIRA is an extension that combines feature, or all other type of branches,
-with JIRA issues. It allows the extraction of issue information directly from
-the console, without changing to JIRA.
+Git JIRA is an extension that combines branches with JIRA issues. It allows the
+extraction of issue information directly from the console, without changing to
+the JIRA website and interrupting the work process.
 
-In order to be able to combine branches the branch name must include the following
-string _PROJECTKEY-###_
+In order to be able to enrich a branch with issue informaiton the name must
+include the following string _PROJECTKEY-###_ aka. the issue name.
 
 Examples if the project key is _PROJ_ and the issue number is _123_
 
