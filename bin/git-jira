@@ -20,9 +20,9 @@ opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage: git-jira [COMMANDS] [OPTIONS]"
   opt.separator  ""
   opt.separator  "Commands"
-  opt.separator  "     init:          setup the current repository to be able to connect to a JIRA project"
-  opt.separator  "     list:          returns a list of branches with related issue information"
-  opt.separator  "     describe:      verbose issue information related to the current branch"
+  opt.separator  "     init [-f | --force]:     setup the current repository to be able to connect to a JIRA project"
+  opt.separator  "     list:                    returns a list of branches with related issue information"
+  opt.separator  "     describe [-i | --issue]: verbose issue information related to the current branch or specified issue"
   opt.separator  ""
 
   opt.on("-h", "--help", "help") do
@@ -37,6 +37,10 @@ opt_parser = OptionParser.new do |opt|
 
   opt.on("-f", "--force", "force overwrite of .git/config [gitjira] block") do
     options[:force] = true
+  end
+
+  opt.on("-i", "--issue [ISSUE]", "specify an issue number, e.g. PROJ-123 or 123") do |i|
+    options[:issue] = i if i
   end
 end
 
@@ -53,10 +57,14 @@ when "list"
   begin
     Gitjira::InformationFetching.branches
   rescue => e
-    STDERR.puts "[ERROR] Not able to fetch feature branch information from JIRA, through exception: #{e}"
+    STDERR.puts "[ERROR] Not able to fetch issue information from JIRA, through exception: #{e}"
   end
 when "describe"
-   Gitjira::InformationFetching.describe
+  begin
+    Gitjira::InformationFetching.describe(options[:issue])
+  rescue => e
+    STDERR.puts "[ERROR] Not able to fetch issue information from JIRA, through exception: #{e}"
+  end
 else
   STDOUT.puts opt_parser
 end

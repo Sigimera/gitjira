@@ -64,6 +64,29 @@ update directly the .git/config file or via the following command:
 
     Add a page that lists all features.
 
+## Exampel Scenario #3 - Get information about a specific issue
+
+Get information about a specific issue that must not be available as branch.
+
+    $ git-jira describe -i 123 # or git-jira describe -i PROJ-123
+    => Add /features page <=
+
+    Issue Key...........: PROJ-123
+    Type................: New Feature
+    Status..............: Resolved
+    Progress............: 42.0 %
+    Estimated Work......: 1d
+    Remaining Work......: 4h 35m
+    Resolution..........: Fixed
+    Priority............: Major
+    Assignee............: Me
+    Reporter............: Me
+    Created At..........: 2013-05-26 13:09:17 +0200
+    Updated At..........: 2013-06-20 23:21:18 +0200
+    Fix Version.........: v1.2.0 (2013-06-30),
+
+    Add a page that lists all features.
+
 ## Tips & Tricks
 
 Use aliases to be even more efficient:

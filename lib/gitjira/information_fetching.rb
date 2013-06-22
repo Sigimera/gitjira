@@ -33,8 +33,10 @@ class Gitjira::InformationFetching
     return nil
   end
 
-  def self.describe
-    issue = self.extract_issue
+  def self.describe(issue = nil)
+    issue = "#{self.project_key}-#{issue}" if issue and not issue.start_with?(self.project_key)
+    issue = self.extract_issue unless issue
+
     if issue
       issue_info = self.fetch_issue_json(issue)
       if issue_info
