@@ -1,7 +1,7 @@
 class Gitjira::InformationFetching
 
   def self.branches
-    project_key = Gitjira::InformationFetching.project_key
+    project_key = self.project_key
     branches = `git branch -a`.split("\n")
     issues = Array.new
     issues_printed = Array.new
@@ -14,6 +14,7 @@ class Gitjira::InformationFetching
       end
 
       if fetch
+        json = self.fetch_issue_json(branch)
         if json['fields']['progress']['percent']
           puts sprintf "%-12s %3.0f%s\t%-14s - %s",
             json['fields']['status']['name'],
@@ -97,8 +98,8 @@ class Gitjira::InformationFetching
   end
 
   def self.extract_issue(branch_name = nil)
-    branch_name = Gitjira::InformationFetching.current_branch if branch_name.nil?
-    project_key = Gitjira::InformationFetching.project_key
+    branch_name = self.current_branch if branch_name.nil?
+    project_key = self.project_key
     branch_name[/#{project_key}-\d+/]
   end
 
@@ -116,8 +117,8 @@ class Gitjira::InformationFetching
 
   private
   def self.fetch_issue_json(issue_name)
-    jira_url = "#{Gitjira::InformationFetching.host}rest/api/2/issue/"
-    credentials = Gitjira::InformationFetching.credentials
+    jira_url = "#{self.host}rest/api/2/issue/"
+    credentials = self.credentials
 
     response = RestClient::Resource.new("#{jira_url}#{issue_name}", {
       :headers => { "Authorization" => "Basic #{credentials}" }
