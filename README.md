@@ -36,14 +36,22 @@ update directly the .git/config file or via the following command:
     $ git-jira init -f # or --force
 
 
-## Example Scenario #1 - List branch information that have related JIRA issues:
+Check if the configuration was stored correctly.
+
+    $ git-jira config
+    JIRA Host...........: https://www.example.org/jira
+    JIRA Project Key....: PROJ
+    JIRA Username.......: johnny
+
+
+## Example #1 - List branch information that have related JIRA issues:
 
     $ git-jira list # or git-jira
     Open           0% done  PROJ-123  - Implement some new feature
     Resolved     100% done  PROJ-20   - And yet another feature
     Resolved      42% done  PROJ-16   - Add /features page
 
-## Exampel Scenario #2 - Get information about the current branch
+## Exampel #2 - Get information about the current branch
 
     $ git-jira describe
     => Add /features page <=
@@ -64,7 +72,7 @@ update directly the .git/config file or via the following command:
 
     Add a page that lists all features.
 
-## Exampel Scenario #3 - Get information about a specific issue
+## Exampel #3 - Get information about a specific issue
 
 Get information about a specific issue that must not be available as branch.
 
