@@ -34,7 +34,7 @@ class Gitjira::InformationFetching
   end
 
   def self.describe(issue = nil)
-    issue = "#{self.project_key}-#{issue}" if issue and not issue.start_with?(self.project_key)
+    issue = "#{self.project_key}-#{issue}" if issue and not issue.to_s.start_with?(self.project_key)
     issue = self.extract_issue unless issue
 
     if issue
