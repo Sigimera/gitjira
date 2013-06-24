@@ -24,7 +24,7 @@ Install via rubygems.org:
 
 ## Setup:
 
-    $ git-jira init
+    $ git-jira init # or gj init
     JIRA host (e.g. https://jira.example.org): http://www.example.org/jira
     Your JIRA username                       : johnny
     Your JIRA password                       : ************
@@ -33,12 +33,12 @@ Install via rubygems.org:
 If you want update the configuration file, e.g. changing the host, you can
 update directly the .git/config file or via the following command:
 
-    $ git-jira init -f # or --force
+    $ git-jira init -f # or --force or gj init
 
 
 Check if the configuration was stored correctly.
 
-    $ git-jira config
+    $ git-jira config # or gj config
     JIRA Host...........: https://www.example.org/jira
     JIRA Project Key....: PROJ
     JIRA Username.......: johnny
@@ -46,14 +46,14 @@ Check if the configuration was stored correctly.
 
 ## Example #1 - List branch information that have related JIRA issues:
 
-    $ git-jira list # or git-jira
+    $ git-jira list # or gj list or git-jira or gj
     Open           0% done  PROJ-123  - Implement some new feature
     Resolved     100% done  PROJ-20   - And yet another feature
     Resolved      42% done  PROJ-16   - Add /features page
 
 ## Exampel #2 - Get information about the current branch
 
-    $ git-jira describe
+    $ git-jira describe # or gj describe
     => Add /features page <=
 
     Issue Key...........: PROJ-123
@@ -76,7 +76,7 @@ Check if the configuration was stored correctly.
 
 Get information about a specific issue that must not be available as branch.
 
-    $ git-jira describe -i 123 # or git-jira describe -i PROJ-123
+    $ git-jira describe -i 123 # or git-jira describe -i PROJ-123 or gj describe -i PROJ-123
     => Add /features page <=
 
     Issue Key...........: PROJ-123
