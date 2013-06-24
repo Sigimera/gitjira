@@ -23,8 +23,10 @@ class Gitjira::Setup
       `git config --local gitjira.host #{host}`
       `git config --local gitjira.credentials #{base64.to_s}`
       `git config --local gitjira.projectkey #{projectkey}`
+      return 0
     else
       STDERR.puts "[ERROR] Please fill out all needed fields."
+      return 1
     end
 
   end

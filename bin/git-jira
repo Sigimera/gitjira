@@ -28,12 +28,12 @@ opt_parser = OptionParser.new do |opt|
 
   opt.on("-h", "--help", "help") do
     STDOUT.puts opt_parser
-    exit
+    exit 0
   end
 
   opt.on("-v", "--version", "print out current Version number") do
     STDOUT.puts "gitjira-#{Gitjira::VERSION}"
-    exit
+    exit 0
   end
 
   opt.on("-f", "--force", "force overwrite of .git/config [gitjira] block") do
@@ -53,18 +53,19 @@ opt_parser.parse!
 def list
   unless Gitjira::Setup.setup?
     STDERR.puts "[SETUP] This repository is not setup, please execute: `git-jira init`"
-    exit
+    exit 1
   end
   begin
-    Gitjira::InformationFetching.branches
+    exit Gitjira::InformationFetching.branches
   rescue => e
     STDERR.puts "[ERROR] Not able to fetch issue information from JIRA, through exception: #{e}"
+    exit 2
   end
 end
 
 case ARGV[0]
 when "init"
-  Gitjira::Setup.init(options[:force])
+  exit Gitjira::Setup.init(options[:force])
 when "list"
   list
 when "describe"
@@ -72,6 +73,7 @@ when "describe"
     Gitjira::InformationFetching.describe(options[:issue])
   rescue => e
     STDERR.puts "[ERROR] Not able to fetch issue information from JIRA, through exception: #{e}"
+    exit 2
   end
 else
   list
