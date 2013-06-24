@@ -38,7 +38,7 @@ update directly the .git/config file or via the following command:
 
 ## Example Scenario #1 - List branch information that have related JIRA issues:
 
-    $ git-jira list
+    $ git-jira list # or git-jira
     Open           0% done  PROJ-123  - Implement some new feature
     Resolved     100% done  PROJ-20   - And yet another feature
     Resolved      42% done  PROJ-16   - Add /features page

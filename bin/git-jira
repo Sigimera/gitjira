@@ -20,10 +20,11 @@ opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage: git-jira [COMMANDS] [OPTIONS]"
   opt.separator  ""
   opt.separator  "Commands"
-  opt.separator  "     init [-f | --force]:     setup the current repository to be able to connect to a JIRA project"
-  opt.separator  "     list:                    returns a list of branches with related issue information"
-  opt.separator  "     describe [-i | --issue]: verbose issue information related to the current branch or specified issue"
+  opt.separator  "     init [-f | --force]        setup the current repository to be able to connect to a JIRA project"
+  opt.separator  "     list                       returns a list of branches with related issue information"
+  opt.separator  "     describe [-i | --issue]    verbose issue information related to the current branch or specified issue"
   opt.separator  ""
+  opt.separator  "Options"
 
   opt.on("-h", "--help", "help") do
     STDOUT.puts opt_parser
@@ -42,14 +43,14 @@ opt_parser = OptionParser.new do |opt|
   opt.on("-i", "--issue [ISSUE]", "specify an issue number, e.g. PROJ-123 or 123") do |i|
     options[:issue] = i if i
   end
+
+  opt.separator   ""
+  opt.separator   "Copyright (C) 2013 Sigimera Ltd."
 end
 
 opt_parser.parse!
 
-case ARGV[0]
-when "init"
-  Gitjira::Setup.init(options[:force])
-when "list"
+def list
   unless Gitjira::Setup.setup?
     STDERR.puts "[SETUP] This repository is not setup, please execute: `git-jira init`"
     exit
@@ -59,6 +60,13 @@ when "list"
   rescue => e
     STDERR.puts "[ERROR] Not able to fetch issue information from JIRA, through exception: #{e}"
   end
+end
+
+case ARGV[0]
+when "init"
+  Gitjira::Setup.init(options[:force])
+when "list"
+  list
 when "describe"
   begin
     Gitjira::InformationFetching.describe(options[:issue])
@@ -66,5 +74,6 @@ when "describe"
     STDERR.puts "[ERROR] Not able to fetch issue information from JIRA, through exception: #{e}"
   end
 else
-  STDOUT.puts opt_parser
+  list
 end
+

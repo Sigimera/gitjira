@@ -7,10 +7,7 @@ class Gitjira::Setup
       STDERR.puts "\t$ git-jira init -f # or git-jira init --force."
       return
     end
-    host = nil
-    username = nil
-    password = nil
-    projectkey = nil
+    host = username = password = projectkey= nil
 
     host = ask("JIRA host (e.g. https://jira.example.org): ")
     host = "#{host}/" if not host.empty? and not host.end_with?("/")
