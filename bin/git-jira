@@ -70,6 +70,7 @@ when "init"
 when "config"
   puts "JIRA Host...........: #{Gitjira::InformationFetching.host}"
   puts "JIRA Project Key....: #{Gitjira::InformationFetching.project_key}"
+  puts "JIRA Username.......: #{Gitjira::InformationFetching.username}"
   exit 0
 when "list"
   list

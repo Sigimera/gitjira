@@ -122,6 +122,14 @@ class Gitjira::InformationFetching
     `git config --local --get gitjira.host`.chomp
   end
 
+  def self.username
+    encoded = self.credentials
+    credentials = Base64.strict_decode64(encoded)
+    username = credentials.split(":").first
+    encoded = credentials = nil
+    username
+  end
+
   private
   def self.fetch_issue_json(issue_name)
     jira_url = "#{self.host}rest/api/2/issue/"
