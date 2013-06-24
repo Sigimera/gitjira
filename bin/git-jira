@@ -76,7 +76,7 @@ when "list"
   list
 when "describe"
   begin
-    Gitjira::InformationFetching.describe(options[:issue])
+    exit Gitjira::InformationFetching.describe(options[:issue])
   rescue => e
     STDERR.puts "[ERROR] Not able to fetch issue information from JIRA, through exception: #{e}"
     exit 2

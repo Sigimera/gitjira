@@ -33,9 +33,9 @@ class Gitjira::InformationFetching
     if issues_printed.size == 0
       STDERR.puts "No branch found that is related to an issue. You can try `git-jira describe -i ###`"
       return 1
+    else
+      return 0
     end
-
-    return 0
   end
 
   def self.describe(issue = nil)
@@ -71,11 +71,15 @@ class Gitjira::InformationFetching
           puts ""
           puts "#{fields['description']}"
         end
+
+        return 0
       else
         puts "[Error] Not able to extract issue information of '#{issue}'"
+        return 2
       end
     else
       puts "[Warning] You are currently in no branch that is related to an issue."
+      return 1
     end
   end
 

@@ -5,7 +5,7 @@ class Gitjira::Setup
     if self.setup? and not force
       STDERR.puts "Repository is configured. Overwrite with:"
       STDERR.puts "\t$ git-jira init -f # or git-jira init --force."
-      return
+      return 1
     end
     host = username = password = projectkey= nil
 
