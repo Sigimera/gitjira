@@ -21,6 +21,7 @@ opt_parser = OptionParser.new do |opt|
   opt.separator  ""
   opt.separator  "Commands"
   opt.separator  "     init [-f | --force]        setup the current repository to be able to connect to a JIRA project"
+  opt.separator  "     config                     output the configuration fields as specified under .git/config"
   opt.separator  "     list                       returns a list of branches with related issue information"
   opt.separator  "     describe [-i | --issue]    verbose issue information related to the current branch or specified issue"
   opt.separator  ""
@@ -66,6 +67,10 @@ end
 case ARGV[0]
 when "init"
   exit Gitjira::Setup.init(options[:force])
+when "config"
+  puts "JIRA Host...........: #{Gitjira::InformationFetching.host}"
+  puts "JIRA Project Key....: #{Gitjira::InformationFetching.project_key}"
+  exit 0
 when "list"
   list
 when "describe"
