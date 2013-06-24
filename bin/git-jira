@@ -51,7 +51,7 @@ when "init"
   Gitjira::Setup.init(options[:force])
 when "list"
   unless Gitjira::Setup.setup?
-    STDERR.puts "[SETUP] This repository is not setup correcly, please execute: `git-jira init`"
+    STDERR.puts "[SETUP] This repository is not setup, please execute: `git-jira init`"
     exit
   end
   begin
