@@ -18,6 +18,7 @@ options = { :force => false, :issue => nil }
 
 opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage: git-jira [COMMANDS] [OPTIONS]"
+  opt.separator  "Alternative: gj [COMMANDS] [OPTIONS]"
   opt.separator  ""
   opt.separator  "Commands"
   opt.separator  "     init [-f | --force]        setup the current repository to be able to connect to a JIRA project"
