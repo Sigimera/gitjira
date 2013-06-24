@@ -31,7 +31,7 @@ class Gitjira::InformationFetching
     end
 
     if issues_printed.size == 0
-      STDERR.puts "No branch found that is related to an issue. You can try `git-jira describe -i ###`"
+      STDERR.puts "[Warning] No branch found that is related to an issue. You can try `git-jira describe -i ###`"
       return 1
     else
       return 0
@@ -78,7 +78,7 @@ class Gitjira::InformationFetching
         return 2
       end
     else
-      puts "[Warning] You are currently in no branch that is related to an issue."
+      puts "[Warning] You are currently in no branch that is related to an issue. You can try `git-jira describe -i ###`"
       return 1
     end
   end
