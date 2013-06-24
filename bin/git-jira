@@ -14,7 +14,7 @@ rescue LoadError => e
   exit
 end
 
-options = { :force => false }
+options = { :force => false, :issue => nil }
 
 opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage: git-jira [COMMANDS] [OPTIONS]"
