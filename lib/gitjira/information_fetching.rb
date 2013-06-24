@@ -78,7 +78,7 @@ class Gitjira::InformationFetching
         return 2
       end
     else
-      puts "[Warning] You are currently in no branch that is related to an issue. You can try `git-jira describe -i ###`"
+      puts "[Warning] You are currently in no issue related branch. You can try `git-jira describe -i ###`"
       return 1
     end
   end
