@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/Sigimera/gitjira.png?label=ready)](https://waffle.io/Sigimera/gitjira)  
 # gitjira
 
 Git JIRA is an extension that combines branches with JIRA issues. It allows the
